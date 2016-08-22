@@ -1,0 +1,23 @@
+{
+  "name": "iyz-css",
+  "description": "iyz",
+  "version": "0.0.0",
+  "scripts": {
+    "init": "npm install"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "autoprefixer-core": "*",
+    "browser-sync": "^2.7.13",
+    "css-mqpacker": "*",
+    "csswring": "*",
+    "gulp": "^3.8.10",
+    "gulp-less": "^3.0.1",
+    "gulp-postcss": "*",
+    "gulp-util": "*",
+    "gulp-sourcemaps": "^1.1.5",
+    "gulp-autoprefixer": "*"
+  }
+}
