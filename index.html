@@ -93,61 +93,12 @@
     <div class="article-content">
         
         <h1 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h1><blockquote>
-<p>atom,强，无敌，最好用的编辑器没有之一，可惜插件被墙了，换了公司换了mac，重新装了一遍atom，顺便整理下这次折腾atom的经过，整理下常用的插件。</p>
-<h2 id="atom插件安装"><a href="#atom插件安装" class="headerlink" title="atom插件安装"></a>atom插件安装</h2><p>由于未知的原因，atom直接安装插件很慢，或者无法安装，然后尝试了下列几种方法</p>
-<ul>
-<li>git clone到本地用apm install安装<br>直接上github下载对应插件仓库至.atom/packages/目录，然后进该插件的文件夹使用apm install进行安装，结果喜闻乐见，先试了terminal-plus，可以从github上面git下来，安装之后，提示报错缺少模块，第二次想直接git clone emmet，结果提示github链接悲剧，挂了代理还拉不下项目，我也是醉，失败。</li>
-<li>使用淘宝npm镜像<br>百度和Google轮番上也没几个解决方法，但都找了这条，设置npm淘宝镜像（我npm设置淘宝镜像还是没速度啊，只能用cnpm，不知道为啥），代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">registry=https://registry.npm.taobao.org/  </div><div class="line">strict-ssl=false</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>将如上代码添加至.atom/.apmrc文件里面，或者直接在终端里面运行如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;registry = https://registry.npm.taobao.org&apos; &gt; ~/.atom/.apmrc</div></pre></td></tr></table></figure></p>
-<p>结果令人悲伤，照理应该能行，结果还是不行，直接使用apm install安装还是不行</p>
-<ul>
-<li>使用代理<br>通过给atom直接设置http代理，socks的代理我也试了，但是没生效，pass了，代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">strict-ssl=false</div><div class="line">https-proxy=http://127.0.0.1:1087/</div><div class="line">http-proxy =http://127.0.0.1:1087/</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>将以上代码写入至.atom/.apmrc文件之中，端口1087是我使用shadowsocks的http代理监听端口，结果大功告成，可以愉快的安装插件了，无论是在atom里面直接安装还是直接输apm install进行安装。</p>
-<h2 id="一些常用的atom插件集合"><a href="#一些常用的atom插件集合" class="headerlink" title="一些常用的atom插件集合"></a>一些常用的atom插件集合</h2><ul>
-<li><p><a href="https://atom.io/packages/atom-beautify" target="_blank" rel="external">atom-beautify</a> 代码格式化插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install atom-beautify</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/atom-ternjs" target="_blank" rel="external">atom-ternjs</a> 对ES5，ES6进行支持</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install atom-ternjs</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/autocomplete-paths" target="_blank" rel="external">autocomplete-paths</a> 对文件路径进行提示，一级好用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install autocomplete-paths</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/emmet" target="_blank" rel="external">emmet</a> 前端必备插件，在mac上无法使用tab键，使用shift+command+e，内置计算器简直好用，强，无敌</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install emmet</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/file-icons" target="_blank" rel="external">file-icons</a> 添加文件icon，美观用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install file-icons</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/git-control" target="_blank" rel="external">git-control</a> 提供一个git的GUI界面进行操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install git-control</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/language-stylus" target="_blank" rel="external">language-stylus</a> stylus,强，无敌，js语法的css预处理语言，爱写冒号写冒号，爱写分号写分号，一句写一句不写也行，变量条件语句都是js语法方便</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install language-stylus</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/stylus-autocompile" target="_blank" rel="external">stylus-autocompile</a> stylus的自动补全，同上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install stylus-autocompile</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/minimap" target="_blank" rel="external">minimap</a> 类似sublime的代码小地图，其实没什么用，而且我装完了确实不显示，不知道为啥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install minimap</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/pigments" target="_blank" rel="external">pigments</a> 颜色提示插件，有各种样式供选择，直观地在样式文件里面显示颜色</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install pigments</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://atom.io/packages/platformio-ide-terminal" target="_blank" rel="external">platformio-ide-terminal</a> 在atom里面运行terminal，啊，装了terminal-plus发现无法输入，才换了这个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm install platformio-ide-terminal</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>一些angular和Vue的插件就略过了，需要的时候再装</p>
-</blockquote>
-
+<p>atom,强，无敌，最好用的编辑器没有之一，可惜插件被墙了，换了公司换了mac，重新装了一遍atom，顺便整理下这次折腾atom的经过，整理下常用的插件。<br>
         
         
         <p class="article-more-link">
+          
+            <a href="/2016/11/16/atom小记/#more">Show More…</a>
           
        </p>
     </div>
@@ -749,6 +700,14 @@
 			
 		
 			
+				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/排序/" title="排序">排序<sup>1</sup></a></li>
 			
 		
@@ -762,14 +721,6 @@
 		
 			
 				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
 			
 		
 		</ul>
