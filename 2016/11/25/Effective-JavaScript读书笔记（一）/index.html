@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>常用git操作 | Somnusochi</title>
+    <title>Effective JavaScript读书笔记（一） | Somnusochi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Somnusochi">
     
 
     
-    <meta name="description" content="常用的git操作">
+    <meta name="description" content="多读书，多看报，少打游戏，多睡觉">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用git操作">
-<meta property="og:url" content="http://Somnusochi.moe/2016/11/07/常用git操作/index.html">
+<meta property="og:title" content="Effective JavaScript读书笔记（一）">
+<meta property="og:url" content="http://Somnusochi.moe/2016/11/25/Effective-JavaScript读书笔记（一）/index.html">
 <meta property="og:site_name" content="Somnusochi">
-<meta property="og:description" content="常用的git操作">
-<meta property="og:updated_time" content="2016-11-14T14:35:12.000Z">
+<meta property="og:description" content="多读书，多看报，少打游戏，多睡觉">
+<meta property="og:updated_time" content="2016-11-25T03:42:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用git操作">
-<meta name="twitter:description" content="常用的git操作">
+<meta name="twitter:title" content="Effective JavaScript读书笔记（一）">
+<meta name="twitter:description" content="多读书，多看报，少打游戏，多睡觉">
 <link rel="publisher" href="107730525499296836062">
 
     
@@ -81,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/11/07/常用git操作/" title="常用git操作" itemprop="url">常用git操作</a>
+      <a href="/2016/11/25/Effective-JavaScript读书笔记（一）/" title="Effective JavaScript读书笔记（一）" itemprop="url">Effective JavaScript读书笔记（一）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/107730525499296836062?rel=author" title="Somnusochi" target="_blank" itemprop="author">Somnusochi</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-07T11:06:51.000Z" itemprop="datePublished"> 发表于 2016-11-07</time>
+    <time datetime="2016-11-25T02:28:14.000Z" itemprop="datePublished"> 发表于 2016-11-25</time>
     
   </p>
 </header>
@@ -97,22 +97,45 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用的git操作"><span class="toc-number">1.</span> <span class="toc-text">常用的git操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是git"><span class="toc-number">1.1.</span> <span class="toc-text">什么是git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要用git"><span class="toc-number">1.2.</span> <span class="toc-text">为什么要用git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的git命令"><span class="toc-number">1.3.</span> <span class="toc-text">常用的git命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-clone"><span class="toc-number">1.3.1.</span> <span class="toc-text">git-clone</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-init"><span class="toc-number">1.3.2.</span> <span class="toc-text">git-init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-add"><span class="toc-number">1.3.3.</span> <span class="toc-text">git-add</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章-amp-链接"><span class="toc-number">2.</span> <span class="toc-text">参考文章&链接</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Effective-JavaScript"><span class="toc-number">1.</span> <span class="toc-text">Effective JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#了解你使用的JavaScript版本"><span class="toc-number">1.1.</span> <span class="toc-text">了解你使用的JavaScript版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#strict-mode"><span class="toc-number">1.1.1.</span> <span class="toc-text">strict mode</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="常用的git操作"><a href="#常用的git操作" class="headerlink" title="常用的git操作"></a>常用的git操作</h1><blockquote>
-<p>每次一脱离WebStorm就无措手足，每次WebStorm的git操作一报错就得百度，每次都得百度也实在是浪费时间，得整理一份连猴子都看得懂的简单的git命令笔记。<br><a id="more"></a></p>
-<h2 id="什么是git"><a href="#什么是git" class="headerlink" title="什么是git"></a>什么是git</h2><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
-<h2 id="为什么要用git"><a href="#为什么要用git" class="headerlink" title="为什么要用git"></a>为什么要用git</h2><p>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。</p>
-<h2 id="常用的git命令"><a href="#常用的git命令" class="headerlink" title="常用的git命令"></a>常用的git命令</h2><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git-clone"></a><a href="https://git-scm.com/docs/git-clone" target="_blank" rel="external">git-clone</a></h3><p>克隆项目仓库至新目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git clone [--template=&lt;template_directory&gt;]</div><div class="line">	  [-l] [-s] [--no-hardlinks] [-q] [-n] [--bare] [--mirror]</div><div class="line">	  [-o &lt;name&gt;] [-b &lt;name&gt;] [-u &lt;upload-pack&gt;] [--reference &lt;repository&gt;]</div><div class="line">	  [--dissociate] [--separate-git-dir &lt;git dir&gt;]</div><div class="line">	  [--depth &lt;depth&gt;] [--[no-]single-branch]</div><div class="line">	  [--recursive | --recurse-submodules] [--[no-]shallow-submodules]</div><div class="line">	  [--jobs &lt;n&gt;] [--] &lt;repository&gt; [&lt;directory&gt;]</div></pre></td></tr></table></figure></p>
-<p>Eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Somnusochi/somnusochi.github.io.git</div></pre></td></tr></table></figure></p>
-<h3 id="git-init"><a href="#git-init" class="headerlink" title="git-init"></a><a href="https://git-scm.com/docs/git-init" target="_blank" rel="external">git-init</a></h3><p>创建新仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git init [-q | --quiet] [--bare] [--template=&lt;template_directory&gt;]</div><div class="line">	  [--separate-git-dir &lt;git dir&gt;]</div><div class="line">	  [--shared[=&lt;permissions&gt;]] [directory]</div></pre></td></tr></table></figure></p>
-<p>Eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure></p>
-<h3 id="git-add"><a href="#git-add" class="headerlink" title="git-add"></a><a href="">git-add</a></h3><p>添加文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]</div><div class="line">	  [--edit | -e] [--[no-]all | --[no-]ignore-removal | [--update | -u]]</div><div class="line">	  [--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing]</div><div class="line">	  [--chmod=(+|-)x] [--] [&lt;pathspec&gt;…​]</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="参考文章-amp-链接"><a href="#参考文章-amp-链接" class="headerlink" title="参考文章&amp;链接"></a>参考文章&amp;链接</h1><blockquote>
-<p><a href="http://git.oschina.net/progit/" target="_blank" rel="external">Pro Git（中文版）</a><br>  <a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">git - 简易指南</a><br>  <a href="https://git-scm.com/docs" target="_blank" rel="external">Git - Reference</a></p>
+		<h1 id="Effective-JavaScript"><a href="#Effective-JavaScript" class="headerlink" title="Effective JavaScript"></a>Effective JavaScript</h1><blockquote>
+<p>室友推荐的书，好好学，好好看，试着写一写<br><a id="more"></a></p>
+<h2 id="了解你使用的JavaScript版本"><a href="#了解你使用的JavaScript版本" class="headerlink" title="了解你使用的JavaScript版本"></a>了解你使用的JavaScript版本</h2><h3 id="strict-mode"><a href="#strict-mode" class="headerlink" title="strict mode"></a>strict mode</h3><ul>
+<li><p>什么是严格模式<br>ES5中引入了严格模式，使用严格模式，能允许你选择在受限制的JavaScript版本中禁止使用一些JavaScript语言中问题较多或易于出错的特性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;use strict&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Eg1.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> function f(x)&#123;</div><div class="line">    &quot;use strict&quot;</div><div class="line">    //TODO</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Eg2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function f(x)&#123;</div><div class="line">    &quot;use strict&quot;</div><div class="line">    var arguments = []; //error: redefinition of arguments</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Eg2的代码在严格模式下会报错，因为在严格模式下，不允许重定义arguments变量。</p>
+</li>
+<li>“use strict”的位置<br>“use strict”指令只有在脚本或函数的顶部才能生效，对于脚本连接会变得敏感，例如对于一些大型的应用软件，当使用多个独立的文件，然而部署在产品环境时却需要连接成一个单一的文件。</li>
+<li><p>Eg3.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//file1.js</div><div class="line">&quot;use strict&quot;</div><div class="line">function f()&#123;</div><div class="line">    //TODO</div><div class="line">&#125;</div><div class="line">//TODO</div><div class="line">而另一个文件不是运行与严格模式下：</div><div class="line">//file2.js</div><div class="line">//no strict-mode directive</div><div class="line">function g()&#123;</div><div class="line">    var arguments = [];</div><div class="line">    //TODO</div><div class="line">&#125;</div><div class="line">//TODO</div></pre></td></tr></table></figure>
+<p>如下我们以file1.js文件开始，那么连接后的代码运行于严格模式下，file2里面的代码就会报错。</p>
+</li>
+<li><p>Eg4.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//file1.js</div><div class="line">&quot;use strict&quot;</div><div class="line">function f()&#123;</div><div class="line">    //TODO</div><div class="line">&#125;</div><div class="line">//TODO</div><div class="line">//file2.js</div><div class="line">//no strict-mode directive</div><div class="line">function f()&#123;</div><div class="line">    var arguments = [];//error: redefinition of arguments</div><div class="line">    //TODO</div><div class="line">&#125;</div><div class="line">//TODO</div></pre></td></tr></table></figure>
+<p>如下我们以file2.js文件开始，那么连接后的代码运行于非严格模式下。</p>
+</li>
+<li><p>Eg5.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//file2.js</div><div class="line">//no strict-mode directive</div><div class="line">function g()&#123;</div><div class="line">    var arguments = [];</div><div class="line">    //TODO</div><div class="line">&#125;</div><div class="line">//TODO</div><div class="line">//file1.js</div><div class="line">&quot;use strict&quot;</div><div class="line">function f()&#123; //no longer strict</div><div class="line">    //TODO</div><div class="line">&#125;</div><div class="line">//TODO</div></pre></td></tr></table></figure>
+<p>上面的两个例子都不能解决当一个文件使用严格模式一个不使用严格模式的连接问题，在自己的项目中，我们可以坚持只使用“严格模式”或“非严格模式”的策略，但如果要编写健壮的代码应对各种各样的代码连接，我们有如下两个可选方案。</p>
+</li>
+<li>方案一<br>不要将进行严格模式检查的文件和不进行严格模式检查的文件连接起来。</li>
+<li><p>方案二<br>如下通过将其自身包裹在立即调用的函数表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//no strict-mode directive</div><div class="line">(function()&#123;</div><div class="line">    //file1.js</div><div class="line">    &quot;use strict&quot;;</div><div class="line">    function f()&#123;</div><div class="line">        //TODO</div><div class="line">    &#125;</div><div class="line">    //TODO</div><div class="line">&#125;)();</div><div class="line">(function()&#123;</div><div class="line">    //file2.js</div><div class="line">    //no strict-mode directive</div><div class="line">    function f()&#123;</div><div class="line">        var arguments = [];</div><div class="line">        //TODO</div><div class="line">    &#125;</div><div class="line">    //TODO</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+</li>
+<li><p>当我们构建代码以获得最大的兼容性时，最简单的方法是在严格模式编写代码，并显式地选择严格模式，如下代码所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">    &quot;use strict&quot;;</div><div class="line">    function f()&#123;</div><div class="line">        //TODO</div><div class="line">  &#125;</div><div class="line">  //TODO</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>为了达到更为普遍的兼容性，建议在严格模式下编写代码。</p>
 </blockquote>
   
 	</div>
@@ -121,13 +144,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/git/">git</a>
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/git/">git</a>
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
   </div>
 
 </div>
@@ -136,7 +159,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://Somnusochi.moe/2016/11/07/常用git操作/" data-title="常用git操作 | Somnusochi" data-tsina="2137916190" class="share clearfix">
+	  <div data-url="http://Somnusochi.moe/2016/11/25/Effective-JavaScript读书笔记（一）/" data-title="Effective JavaScript读书笔记（一） | Somnusochi" data-tsina="2137916190" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -149,19 +172,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/11/10/js常用数组排序/" title="js常用数组排序">
-  <strong>上一篇：</strong><br/>
-  <span>
-  js常用数组排序</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/11/05/font-face/"  title="@font-face">
+<a href="/2016/11/18/stylus学习笔记/"  title="stylus学习笔记">
  <strong>下一篇：</strong><br/> 
- <span>@font-face
+ <span>stylus学习笔记
 </span>
 </a>
 </div>
@@ -182,7 +197,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用的git操作"><span class="toc-number">1.</span> <span class="toc-text">常用的git操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是git"><span class="toc-number">1.1.</span> <span class="toc-text">什么是git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要用git"><span class="toc-number">1.2.</span> <span class="toc-text">为什么要用git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的git命令"><span class="toc-number">1.3.</span> <span class="toc-text">常用的git命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-clone"><span class="toc-number">1.3.1.</span> <span class="toc-text">git-clone</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-init"><span class="toc-number">1.3.2.</span> <span class="toc-text">git-init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-add"><span class="toc-number">1.3.3.</span> <span class="toc-text">git-add</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章-amp-链接"><span class="toc-number">2.</span> <span class="toc-text">参考文章&链接</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Effective-JavaScript"><span class="toc-number">1.</span> <span class="toc-text">Effective JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#了解你使用的JavaScript版本"><span class="toc-number">1.1.</span> <span class="toc-text">了解你使用的JavaScript版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#strict-mode"><span class="toc-number">1.1.1.</span> <span class="toc-text">strict mode</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
