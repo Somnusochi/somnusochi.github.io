@@ -1,8 +1,8 @@
 ---
 title: js常用数组排序
 date: 2016-11-10 04:16:59
-tags: ['javascript','排序','算法']
-categories: javascript
+tags: ['JavaScript','排序','算法']
+categories: JavaScript
 description: 常用的一些数组排序方法
 ---
 # js常用的数组排序

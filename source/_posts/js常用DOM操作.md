@@ -1,8 +1,8 @@
 ---
 title: js常用DOM操作
 date: 2016-11-10 04:17:34
-tags: javascript
-categories: javascript
+tags: JavaScript
+categories: JavaScript
 description: js常用的DOM操作方法
 ---
 # JS常用的DOM操作方法
