@@ -14,7 +14,7 @@ description:
 > 直接上github下载对应插件仓库至.atom/packages/目录，然后进该插件的文件夹使用apm install进行安装，结果喜闻乐见，先试了terminal-plus，可以从github上面git下来，安装之后，提示报错缺少模块，第二次想直接git clone emmet，结果提示github链接悲剧，挂了代理还拉不下项目，我也是醉，失败。
 + 使用淘宝npm镜像
 > 百度和Google轮番上也没几个解决方法，但都找了这条，设置npm淘宝镜像（我npm设置淘宝镜像还是没速度啊，只能用cnpm，不知道为啥），代码如下
-```
+> ```
 registry=https://registry.npm.taobao.org/  
 strict-ssl=false
 ```
@@ -25,7 +25,7 @@ echo 'registry = https://registry.npm.taobao.org' > ~/.atom/.apmrc
 > 结果令人悲伤，照理应该能行，结果还是不行，直接使用apm install安装还是不行
 + 使用代理
 通过给atom直接设置http代理，socks的代理我也试了，但是没生效，pass了，代码如下
-```
+> ```
 strict-ssl=false
 https-proxy=http://127.0.0.1:1087/
 http-proxy =http://127.0.0.1:1087/
