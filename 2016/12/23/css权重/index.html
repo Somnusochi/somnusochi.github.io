@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Somnusochi">
 <meta property="og:description" content="学习CSS选择器权重">
 <meta property="og:image" content="http://Somnusochi.moe/images/specificitywars-05v2.jpg">
-<meta property="og:updated_time" content="2016-12-23T09:28:15.000Z">
+<meta property="og:updated_time" content="2016-12-23T09:41:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css选择器权重">
 <meta name="twitter:description" content="学习CSS选择器权重">
@@ -106,6 +106,7 @@
 		<h1 id="CSS选择器权重"><a href="#CSS选择器权重" class="headerlink" title="CSS选择器权重"></a>CSS选择器权重</h1><blockquote>
 <p>看了<a href="https://img.w3ctech.com/slide/4.20%20things%20I%20didn%E2%80%99t%20know%20about%20CSS.pdf" target="_blank" rel="external">things I don’t know about CSS</a>发现覆盖样式有比important更好的方法，又去学习了一遍CSS选择器的优先级，丢图跑<br><img src="/images/specificitywars-05v2.jpg" alt=""></p>
 </blockquote>
+<a id="more"></a>
 <h2 id="关于-important"><a href="#关于-important" class="headerlink" title="关于!important"></a>关于!important</h2><blockquote>
 <p>之前在使用AmazeUI与Bootstrap时，常常遇见会需要覆盖原生样式的情况，一般情况我们可以添加类去覆盖CSS样式效果，或者通过一样的类名去覆盖样式文件，当我们通过覆盖类发现CSS优先级较低无法覆盖时我们可以使用如下方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.foo .bar &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line">.bar &#123;</div><div class="line">  color: green;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//bad</div><div class="line">.bar &#123;</div><div class="line">  color: green !important;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//good</div><div class="line">.bar.bar&#123;</div><div class="line">  color: green;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
@@ -227,15 +228,15 @@
 			
 		
 			
-				<li><a href="/tags/atom/" title="atom">atom<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/box-sizing/" title="box-sizing">box-sizing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
 			
 		
 			
@@ -247,15 +248,15 @@
 			
 		
 			
-				<li><a href="/tags/日常/" title="日常">日常<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/stylus/" title="stylus">stylus<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
+				<li><a href="/tags/日常/" title="日常">日常<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/atom/" title="atom">atom<sup>1</sup></a></li>
 			
 		
 		</ul>
