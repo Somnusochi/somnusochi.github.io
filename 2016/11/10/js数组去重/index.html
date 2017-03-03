@@ -11,13 +11,19 @@
     
 
     
-    <meta property="og:type" content="article">
+    <meta name="description" content="js数组去重方法
+1234567891011Array.prototype.unique = function() &amp;#123;  var res = [];  var json = &amp;#123;&amp;#125;;  for (var i = 0; i &amp;lt; this.length; i++) &amp;#123;    if (!json[this[i]]) &amp;#123;      res.push(t">
+<meta property="og:type" content="article">
 <meta property="og:title" content="js数组去重">
 <meta property="og:url" content="http://Somnusochi.moe/2016/11/10/js数组去重/index.html">
 <meta property="og:site_name" content="Somnusochi">
-<meta property="og:updated_time" content="2017-03-03T03:27:09.000Z">
+<meta property="og:description" content="js数组去重方法
+1234567891011Array.prototype.unique = function() &amp;#123;  var res = [];  var json = &amp;#123;&amp;#125;;  for (var i = 0; i &amp;lt; this.length; i++) &amp;#123;    if (!json[this[i]]) &amp;#123;      res.push(t">
+<meta property="og:updated_time" content="2017-03-03T03:36:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js数组去重">
+<meta name="twitter:description" content="js数组去重方法
+1234567891011Array.prototype.unique = function() &amp;#123;  var res = [];  var json = &amp;#123;&amp;#125;;  for (var i = 0; i &amp;lt; this.length; i++) &amp;#123;    if (!json[this[i]]) &amp;#123;      res.push(t">
 <link rel="publisher" href="107730525499296836062">
 
     
@@ -94,11 +100,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js数组去重方法"><span class="toc-number">1.</span> <span class="toc-text">js数组去重方法</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<h1 id="js数组去重方法"><a href="#js数组去重方法" class="headerlink" title="js数组去重方法"></a>js数组去重方法</h1><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Array.prototype.unique = function() &#123;</div><div class="line">  var res = [];</div><div class="line">  var json = &#123;&#125;;</div><div class="line">  for (var i = 0; i &lt; this.length; i++) &#123;</div><div class="line">    if (!json[this[i]]) &#123;</div><div class="line">      res.push(this[i]);</div><div class="line">      json[this[i]] = 1;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -156,7 +165,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js数组去重方法"><span class="toc-number">1.</span> <span class="toc-text">js数组去重方法</span></a></li></ol>
  
   </div>
 
@@ -186,6 +195,10 @@
 		  
 		
 		  
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/日常/" title="日常">日常<sup>1</sup></a></li>
 		  
 		
@@ -211,11 +224,15 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/box-sizing/" title="box-sizing">box-sizing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vue/" title="vue">vue<sup>1</sup></a></li>
 			
 		
 			
@@ -239,7 +256,7 @@
 			
 		
 			
-				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
 			
 		
 		</ul>
