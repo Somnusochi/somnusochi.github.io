@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Vue1.x迁移记录 | Somnusochi</title>
+    <title>phantomjs小试 | Somnusochi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Somnusochi">
     
 
     
-    <meta name="description" content="记录从Vue1.x迁移到Vue2.x的过程">
+    <meta name="description" content="试着用了一下phantomjs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue1.x迁移记录">
-<meta property="og:url" content="http://Somnusochi.moe/2017/03/03/Vue1-x迁移记录/index.html">
+<meta property="og:title" content="phantomjs小试">
+<meta property="og:url" content="http://Somnusochi.moe/2017/03/09/phantomjs小试/index.html">
 <meta property="og:site_name" content="Somnusochi">
-<meta property="og:description" content="记录从Vue1.x迁移到Vue2.x的过程">
-<meta property="og:updated_time" content="2017-03-03T05:21:19.000Z">
+<meta property="og:description" content="试着用了一下phantomjs">
+<meta property="og:updated_time" content="2017-03-09T02:41:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue1.x迁移记录">
-<meta name="twitter:description" content="记录从Vue1.x迁移到Vue2.x的过程">
+<meta name="twitter:title" content="phantomjs小试">
+<meta name="twitter:description" content="试着用了一下phantomjs">
 <link rel="publisher" href="107730525499296836062">
 
     
@@ -81,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/03/Vue1-x迁移记录/" title="Vue1.x迁移记录" itemprop="url">Vue1.x迁移记录</a>
+      <a href="/2017/03/09/phantomjs小试/" title="phantomjs小试" itemprop="url">phantomjs小试</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/107730525499296836062?rel=author" title="Somnusochi" target="_blank" itemprop="author">Somnusochi</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-03T03:33:10.000Z" itemprop="datePublished"> 发表于 2017-03-03</time>
+    <time datetime="2017-03-09T02:19:51.000Z" itemprop="datePublished"> 发表于 2017-03-09</time>
     
   </p>
 </header>
@@ -97,28 +97,21 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从Vue1-x迁移到2-x"><span class="toc-number">1.</span> <span class="toc-text">从Vue1.x迁移到2.x</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#升级脚手架"><span class="toc-number">1.1.</span> <span class="toc-text">升级脚手架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行项目修正语法错误"><span class="toc-number">1.2.</span> <span class="toc-text">运行项目修正语法错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改vue-router"><span class="toc-number">1.3.</span> <span class="toc-text">修改vue-router</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行项目"><span class="toc-number">1.4.</span> <span class="toc-text">运行项目</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装phantomjs"><span class="toc-number">1.</span> <span class="toc-text">安装phantomjs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看网页加载速度"><span class="toc-number">2.1.</span> <span class="toc-text">查看网页加载速度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析页面加载资源"><span class="toc-number">2.2.</span> <span class="toc-text">分析页面加载资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更多"><span class="toc-number">3.</span> <span class="toc-text">更多</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="从Vue1-x迁移到2-x"><a href="#从Vue1-x迁移到2-x" class="headerlink" title="从Vue1.x迁移到2.x"></a>从Vue1.x迁移到2.x</h1><blockquote>
-<p>记录下项目迁移到2.x的过程以及注意事项<br><a id="more"></a></p>
-<h2 id="升级脚手架"><a href="#升级脚手架" class="headerlink" title="升级脚手架"></a>升级脚手架</h2><p>升级package文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&quot;vue&quot;: &quot;^1.0.21&quot; -&gt; &quot;vue&quot;: &quot;^2.0.0&quot;,</div><div class="line">&quot;vue-router&quot;: &quot;^0.7.13&quot; -&gt; &quot;vue-router&quot;: &quot;^2.0.0&quot;,</div><div class="line">&quot;vue-loader&quot;: &quot;^8.3.0&quot; -&gt; &quot;vue-loader&quot;: &quot;^9.0.0&quot;,</div><div class="line">&quot;vue-router&quot;: &quot;^0.7.13&quot; -&gt; &quot;vue-router&quot;: &quot;^2.0.0&quot;,</div><div class="line">&quot;vue-lazyload&quot;: &quot;^1.0.0-rc10&quot; -&gt; &quot;vue-lazyload&quot;: &quot;^1.0.0-rc12&quot;,</div><div class="line">&quot;vue-hot-reload-api&quot;: &quot;^1.2.0&quot; -&gt; &quot;vue-hot-reload-api&quot;: &quot;^2.0.11&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="运行项目修正语法错误"><a href="#运行项目修正语法错误" class="headerlink" title="运行项目修正语法错误"></a>运行项目修正语法错误</h2><p>运行项目会发现有vue-loader语法错误，项目无法运行，错误主要分为2类</p>
-<ul>
-<li>过滤器语法错误，以及vue移除了自带的过滤器</li>
-<li>vue2.x的组件的html代码需要包裹在一个div里面</li>
-</ul>
-<h2 id="修改vue-router"><a href="#修改vue-router" class="headerlink" title="修改vue-router"></a>修改vue-router</h2><p>vue-router升级至2.x版本较原来的0.7.x有较大改变</p>
-<ul>
-<li>修改入口文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var router = new VueRouter(&#123;</div><div class="line">  root: &apos;/wx&apos;,</div><div class="line">  hashbang: false,</div><div class="line">  history: true, //html5模式</div><div class="line">  saveScrollPosition: true //记住页面的滚动位置 html5模式适用</div><div class="line">&#125;);</div><div class="line">// 路由部分</div><div class="line">router.map(RouteConf.route);</div><div class="line">// 启动整个应用</div><div class="line">router.start(App, &apos;#app&apos;);</div><div class="line"></div><div class="line">--------------------------------------------------------</div><div class="line"></div><div class="line">var router = new VueRouter(&#123;</div><div class="line">  base: &apos;/wx&apos;,</div><div class="line">  mode: &apos;history&apos;, //html5模式</div><div class="line">  routes: [RouteConf.route]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  router,</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>修改路由文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">let router = &#123;</div><div class="line">  // 首页</div><div class="line">  &quot;/index&quot;: &#123;</div><div class="line">    name: &apos;index&apos;,</div><div class="line">    component: function(resolve) &#123;</div><div class="line">      require([&apos;../../pages/index/index.page&apos;], resolve);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default router;</div><div class="line"></div><div class="line">---------------------------------------------------------</div><div class="line"></div><div class="line">&apos;use strict&apos;;</div><div class="line">let router = &#123;</div><div class="line">  // 首页</div><div class="line">  path: &quot;/index&quot;,</div><div class="line">  name: &apos;index&apos;,</div><div class="line">  component: function(resolve) &#123;</div><div class="line">    require([&apos;../../pages/index/index.page&apos;], resolve);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default router;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2></blockquote>
+		<h1 id="安装phantomjs"><a href="#安装phantomjs" class="headerlink" title="安装phantomjs"></a>安装phantomjs</h1><blockquote>
+<p>phantomjs是一个无界面的,可脚本编程的WebKit浏览器引擎。它原生支持多种web 标准：DOM 操作，CSS选择器，JSON，Canvas 以及SVG<br><a id="more"></a><br><code>npm install phantomjs -g</code></p>
+</blockquote>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><blockquote>
+<p>使用<code>phantomjs --version</code>查看安装的phantomjs版本</p>
+<h2 id="查看网页加载速度"><a href="#查看网页加载速度" class="headerlink" title="查看网页加载速度"></a>查看网页加载速度</h2><p><code>phantomjs loadspeed.js https://somnusochi.github.io/</code></p>
+<h2 id="分析页面加载资源"><a href="#分析页面加载资源" class="headerlink" title="分析页面加载资源"></a>分析页面加载资源</h2><p><code>phantomjs netsniff.js https://somnusochi.github.io/</code>将抓捕到的网络请求导出成 HAR 格式可以访问<code>http://www.softwareishard.com/har/viewer/</code>进行可视化分析</p>
+</blockquote>
+<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1><blockquote>
+<p>更多的例子可以去<a href="http://phantomjs.org/" target="_blank" rel="external">PhantomJS</a>官网查看</p>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,13 +119,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/vue/">vue</a>
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/vue/">vue</a>
+  <span></span> <a href="/tags/phantomjs/">phantomjs</a>
   </div>
 
 </div>
@@ -141,7 +134,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://Somnusochi.moe/2017/03/03/Vue1-x迁移记录/" data-title="Vue1.x迁移记录 | Somnusochi" data-tsina="2137916190" class="share clearfix">
+	  <div data-url="http://Somnusochi.moe/2017/03/09/phantomjs小试/" data-title="phantomjs小试 | Somnusochi" data-tsina="2137916190" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -154,19 +147,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/09/phantomjs小试/" title="phantomjs小试">
-  <strong>上一篇：</strong><br/>
-  <span>
-  phantomjs小试</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/12/23/css权重/"  title="css选择器权重">
+<a href="/2017/03/03/Vue1-x迁移记录/"  title="Vue1.x迁移记录">
  <strong>下一篇：</strong><br/> 
- <span>css选择器权重
+ <span>Vue1.x迁移记录
 </span>
 </a>
 </div>
@@ -187,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从Vue1-x迁移到2-x"><span class="toc-number">1.</span> <span class="toc-text">从Vue1.x迁移到2.x</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#升级脚手架"><span class="toc-number">1.1.</span> <span class="toc-text">升级脚手架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行项目修正语法错误"><span class="toc-number">1.2.</span> <span class="toc-text">运行项目修正语法错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改vue-router"><span class="toc-number">1.3.</span> <span class="toc-text">修改vue-router</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行项目"><span class="toc-number">1.4.</span> <span class="toc-text">运行项目</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装phantomjs"><span class="toc-number">1.</span> <span class="toc-text">安装phantomjs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看网页加载速度"><span class="toc-number">2.1.</span> <span class="toc-text">查看网页加载速度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析页面加载资源"><span class="toc-number">2.2.</span> <span class="toc-text">分析页面加载资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更多"><span class="toc-number">3.</span> <span class="toc-text">更多</span></a></li></ol>
  
   </div>
 
