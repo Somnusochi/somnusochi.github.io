@@ -6,7 +6,7 @@ categories: JavaScript
 description: 多读书，多看报，少打游戏，多睡觉
 ---
 # Effective JavaScript
-> 室友推荐的书，试着写一写
+> 
 <!-- more -->
 ## 了解你使用的JavaScript版本
 ### strict mode

@@ -56,11 +56,11 @@ apm install file-icons
 ```
 apm install git-control
 ```
-> + [language-stylus](https://atom.io/packages/language-stylus) stylus,强，无敌，js语法的css预处理语言，爱写冒号写冒号，爱写分号写分号，一句写一句不写也行，变量条件语句都是js语法方便
+> + [language-stylus](https://atom.io/packages/language-stylus) stylus，js语法的css预处理语言
 ```
 apm install language-stylus
 ```
-> + [minimap](https://atom.io/packages/minimap) 类似sublime的代码小地图，其实没什么用，而且我装完了确实不显示，不知道为啥
+> + [minimap](https://atom.io/packages/minimap) 类似sublime的代码小地图
 ```
 apm install minimap
 ```

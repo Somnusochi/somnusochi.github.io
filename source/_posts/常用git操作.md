@@ -6,7 +6,7 @@ categories: git
 description: 常用的git操作
 ---
 # 常用的git操作
-> 每次一脱离WebStorm就无措手足，每次WebStorm的git操作一报错就得百度，每次都得百度也实在是浪费时间，得整理一份连猴子都看得懂的简单的git命令笔记。
+> 
 <!-- more -->
 ## 什么是git
 > Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。

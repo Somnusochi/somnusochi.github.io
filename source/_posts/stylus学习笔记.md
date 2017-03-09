@@ -6,7 +6,7 @@ categories: CSS
 description: 学习stylus，css预处理语言
 ---
 # stylus学习笔记
-> 挖个坑，有空写写，中文版参考文档和官网比了下，有些没翻译，毕竟好几年前的事情了，唉
+> 坑
 
 
 

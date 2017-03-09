@@ -6,7 +6,7 @@ categories: JavaScript
 description: js常用的DOM操作方法
 ---
 # JS常用的DOM操作方法
-> 唉，好吧，笔试出现了这个问题，照理来说这实在是再简单不过的问题，但还是GG了，对于DOM之前在公司的时候不过都是用js来控制显示与隐藏，再久远就是学jQuery时候的添加DOM，删除DOM方法了，有jQuery为什么还要原生javascript，什么？你连原生javascript都不会算什么前端，唉，补一补，脱离代码补全的废人一个啊。
+> 
 <!-- more -->
 ## DOM创建节点
 > ```
