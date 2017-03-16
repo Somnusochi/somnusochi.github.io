@@ -44,9 +44,20 @@ router.start(App, '#app');
 
 var router = new VueRouter({
   base: '/wx',
-  mode: 'history', //html5模式
-  routes: [RouteConf.route]
+  mode: 'history', //html5模式 去掉锚点
+  routes: RouteConf.route,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return {
+        x: 0,
+        y: 0
+      }
+    }
+  }
 });
+
 
 new Vue({
   router,
@@ -54,7 +65,7 @@ new Vue({
   render: h => h(App)
 })
 ```
-> 
+>
 * 修改路由文件
 ```
 let router = {
