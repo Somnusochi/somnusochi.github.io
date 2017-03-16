@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://Somnusochi.moe/2017/03/03/Vue1-x迁移记录/index.html">
 <meta property="og:site_name" content="Somnusochi">
 <meta property="og:description" content="记录从Vue1.x迁移到Vue2.x的过程">
-<meta property="og:updated_time" content="2017-03-03T05:21:19.000Z">
+<meta property="og:updated_time" content="2017-03-16T03:34:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue1.x迁移记录">
 <meta name="twitter:description" content="记录从Vue1.x迁移到Vue2.x的过程">
@@ -111,13 +111,16 @@
 </ul>
 <h2 id="修改vue-router"><a href="#修改vue-router" class="headerlink" title="修改vue-router"></a>修改vue-router</h2><p>vue-router升级至2.x版本较原来的0.7.x有较大改变</p>
 <ul>
-<li>修改入口文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var router = new VueRouter(&#123;</div><div class="line">  root: &apos;/wx&apos;,</div><div class="line">  hashbang: false,</div><div class="line">  history: true, //html5模式</div><div class="line">  saveScrollPosition: true //记住页面的滚动位置 html5模式适用</div><div class="line">&#125;);</div><div class="line">// 路由部分</div><div class="line">router.map(RouteConf.route);</div><div class="line">// 启动整个应用</div><div class="line">router.start(App, &apos;#app&apos;);</div><div class="line"></div><div class="line">--------------------------------------------------------</div><div class="line"></div><div class="line">var router = new VueRouter(&#123;</div><div class="line">  base: &apos;/wx&apos;,</div><div class="line">  mode: &apos;history&apos;, //html5模式</div><div class="line">  routes: [RouteConf.route]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  router,</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<li>修改入口文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">var router = new VueRouter(&#123;</div><div class="line">  root: &apos;/wx&apos;,</div><div class="line">  hashbang: false,</div><div class="line">  history: true, //html5模式</div><div class="line">  saveScrollPosition: true //记住页面的滚动位置 html5模式适用</div><div class="line">&#125;);</div><div class="line">// 路由部分</div><div class="line">router.map(RouteConf.route);</div><div class="line">// 启动整个应用</div><div class="line">router.start(App, &apos;#app&apos;);</div><div class="line"></div><div class="line">--------------------------------------------------------</div><div class="line"></div><div class="line">var router = new VueRouter(&#123;</div><div class="line">  base: &apos;/wx&apos;,</div><div class="line">  mode: &apos;history&apos;, //html5模式 去掉锚点</div><div class="line">  routes: RouteConf.route,</div><div class="line">  scrollBehavior(to, from, savedPosition) &#123;</div><div class="line">    if (savedPosition) &#123;</div><div class="line">      return savedPosition</div><div class="line">    &#125; else &#123;</div><div class="line">      return &#123;</div><div class="line">        x: 0,</div><div class="line">        y: 0</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  router,</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 </ul>
+</blockquote>
+<p>&gt;</p>
 <ul>
 <li>修改路由文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">let router = &#123;</div><div class="line">  // 首页</div><div class="line">  &quot;/index&quot;: &#123;</div><div class="line">    name: &apos;index&apos;,</div><div class="line">    component: function(resolve) &#123;</div><div class="line">      require([&apos;../../pages/index/index.page&apos;], resolve);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default router;</div><div class="line"></div><div class="line">---------------------------------------------------------</div><div class="line"></div><div class="line">&apos;use strict&apos;;</div><div class="line">let router = &#123;</div><div class="line">  // 首页</div><div class="line">  path: &quot;/index&quot;,</div><div class="line">  name: &apos;index&apos;,</div><div class="line">  component: function(resolve) &#123;</div><div class="line">    require([&apos;../../pages/index/index.page&apos;], resolve);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default router;</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<blockquote>
 <h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2></blockquote>
   
 	</div>
@@ -246,15 +249,15 @@
 			
 		
 			
-				<li><a href="/tags/box-sizing/" title="box-sizing">box-sizing<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/atom/" title="atom">atom<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/box-sizing/" title="box-sizing">box-sizing<sup>1</sup></a></li>
 			
 		
 			
@@ -270,19 +273,19 @@
 			
 		
 			
-				<li><a href="/tags/phantomjs/" title="phantomjs">phantomjs<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/stylus/" title="stylus">stylus<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/日常/" title="日常">日常<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/font-face/" title="@font-face">@font-face<sup>1</sup></a></li>
+				<li><a href="/tags/phantomjs/" title="phantomjs">phantomjs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stylus/" title="stylus">stylus<sup>1</sup></a></li>
 			
 		
 		</ul>
