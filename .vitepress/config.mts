@@ -7,7 +7,6 @@ export default defineConfig({
   lang: 'zh-CN',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   srcDir: './src',
-  outDir: './dist',
   markdown: {
     theme: 'monokai',
     lineNumbers: true,
