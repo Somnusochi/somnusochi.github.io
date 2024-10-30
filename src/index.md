@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Somnusochi's Home"
   text: "Plan-C"
-  tagline: My great project tagline
+  tagline: With simple hearts, do what you love.
   actions:
     - theme: brand
       text: Markdown Examples

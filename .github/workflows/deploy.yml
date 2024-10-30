@@ -47,17 +47,17 @@ jobs:
         run: pnpm install # 或 pnpm install / yarn install / bun install
       - name: Build with VitePress
         run: pnpm run build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
       - name: Deploy to master branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master # 目标分支
           folder: dist # 构建产物目录
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
-          commit_message: 'Update site from site branch' # 提交信息
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+          commit_message: 'feat: update site from site branch' # 提交信息
 
   # 部署工作
   deploy:
