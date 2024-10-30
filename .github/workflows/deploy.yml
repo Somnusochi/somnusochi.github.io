@@ -55,3 +55,15 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
           commit_message: 'Update site from site branch' # 提交信息
 
+  # 部署工作
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
