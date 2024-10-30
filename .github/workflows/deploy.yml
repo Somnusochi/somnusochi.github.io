@@ -58,29 +58,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Deploy to master branch
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          ref: master # 切换到 master 分支
-
-      - name: Download artifact
-        uses: actions/download-pages-artifact@v3
-        with:
-          path: ./.vitepress/dist
-
-      - name: Checkout master branch
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout -b master
-
-      - name: Copy build output to master branch
-        run: |
-          rm -rf ./* || true
-          cp -r ./.vitepress/dist/* ./
-
-      - name: Commit and push changes
-        run: |
-          git add .
-          git commit -m "Update site from site branch" || echo "No changes to commit"
-          git push origin master
+          branch: master # 目标分支
+          folder: ./.vitepress/dist # 构建产物目录
+          token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
+          commit_message: 'Update site from site branch' # 提交信息
