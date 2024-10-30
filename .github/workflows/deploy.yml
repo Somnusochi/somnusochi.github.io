@@ -54,6 +54,10 @@ jobs:
           folder: dist # 构建产物目录
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
           commit_message: 'Update site from site branch' # 提交信息
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   # 部署工作
   deploy:
