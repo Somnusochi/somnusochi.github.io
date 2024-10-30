@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -60,5 +62,23 @@ export default defineConfig({
       message: 'With simple hearts, do what you love.',
       copyright: `Copyright © 2016-${new Date().getFullYear()} <a href="https://github.com/Somnusochi">Somnusochi</a>`
     }
+  },
+  vite: {
+    plugins: [
+      AutoImport({
+        imports: ['vue'],
+        dts: 'auto-imports.d.ts', // 生成类型声明文件
+      }),
+      Components({
+        dirs: [
+          '../src/components',
+        ],
+        // allow auto load markdown components under `./src/components/`
+        extensions: ['vue', 'md'],
+        // allow auto import and register components used in markdown
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        dts: true,
+      }),
+    ],
   }
 })
