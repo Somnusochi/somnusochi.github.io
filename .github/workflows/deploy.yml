@@ -47,13 +47,6 @@ jobs:
         run: pnpm install # 或 pnpm install / yarn install / bun install
       - name: Build with VitePress
         run: pnpm run build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
-
-  # 部署工作
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to master branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -61,3 +54,4 @@ jobs:
           folder: dist # 构建产物目录
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
           commit_message: 'Update site from site branch' # 提交信息
+
