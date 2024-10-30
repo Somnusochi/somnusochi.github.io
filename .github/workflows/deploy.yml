@@ -58,6 +58,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master # 目标分支
-          folder: ./.vitepress/dist # 构建产物目录
+          folder: dist # 构建产物目录
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
           commit_message: 'Update site from site branch' # 提交信息
