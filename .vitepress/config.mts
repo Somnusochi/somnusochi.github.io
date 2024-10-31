@@ -43,6 +43,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Others',
+        items: [
+          { text: 'Github-pages搭建指南', link: '/others/github-pages-guide' },
+        ]
+      },
+      {
         items: [
           { text: 'Resume', link: '/resume' }
         ]
