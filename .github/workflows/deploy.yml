@@ -41,6 +41,8 @@ jobs:
         with:
           node-version: 20
           cache: pnpm # 或 pnpm / yarn
+      - name: Retrieve current Date Time in Shanghai TimeZone
+        run: echo "START_TIME=$(TZ=":Asia/Shanghai" date -R|sed 's/.....$//')" >> $GITHUB_ENV
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
@@ -57,7 +59,7 @@ jobs:
           branch: master # 目标分支
           folder: dist # 构建产物目录
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
-          commit-message: 'Site updated: ${{ formatDateTime(github.event.created_at, ''yyyy-MM-dd HH:mm:ss'') }}🚀' # 提交信息
+          commit-message: 'Site updated: ${{ env.START_TIME }}🚀' # 提交信息
 
   # 部署工作
   deploy:
