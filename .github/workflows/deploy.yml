@@ -57,7 +57,7 @@ jobs:
           branch: master # 目标分支
           folder: dist # 构建产物目录
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
-          commit_message: 'feat: update site from site branch' # 提交信息
+          commit-message: 'Site updated: ${{ formatDateTime(github.event.created_at, ''yyyy-MM-dd HH:mm:ss'') }}🚀' # 提交信息
 
   # 部署工作
   deploy:
