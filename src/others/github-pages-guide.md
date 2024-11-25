@@ -23,11 +23,12 @@ pnpm add -D vitepress
 3.初始化VitePress
 
 ```shell
- pnpm vitepress init
+pnpm vitepress init
 ```
 
 4.修改`config.mts`配置文件
-> 配置目录入口为`src`文件夹，添加并配置`unplugin-auto-import`与`unplugin-vue-components`插件
+
+> 配置入口为`src`文件夹，引入`unplugin-auto-import`与`unplugin-vue-components`插件
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -226,5 +227,5 @@ jobs:
    ├─ javascript // js主题
    ├─ others // 其他主题
    ├─ public // 静态资源
-   └─ index.md
+   └─ index.md // 主页
 ```
