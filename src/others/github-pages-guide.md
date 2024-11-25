@@ -27,6 +27,7 @@ pnpm add -D vitepress
 ```
 
 4.修改`config.mts`配置文件
+> 配置目录入口为`src`文件夹，添加并配置`unplugin-auto-import`与`unplugin-vue-components`插件
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -124,6 +125,7 @@ export default defineConfig({
 
 ## github-pages部署
 在根目录新建`.github/workflows`文件夹，添加`deploy.yml`文件
+
 ```yml
 # 构建 VitePress 站点并将其部署到 GitHub Pages 的示例工作流程
 #
@@ -208,7 +210,7 @@ jobs:
 ```md
 .
 ├─ package.json
-├─ .github 
+├─ .github
 │  └─ workflows
 │     └─ deploy.yml // git-action 配置文件
 ├─ .vitepress // vitepress 相关文件
