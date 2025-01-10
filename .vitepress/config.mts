@@ -13,6 +13,15 @@ export default defineConfig({
   markdown: {
     theme: 'monokai',
     lineNumbers: true,
+    config: (md) => {
+      const fence = md.renderer.rules.fence!
+      md.renderer.rules.fence = (...args) => {
+        const [tokens, idx] = args
+        const token = tokens[idx]
+        const rawCode = fence(...args)
+        return `<div class="custom-code-block">${rawCode}</div>`
+      }
+    }
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -24,6 +33,8 @@ export default defineConfig({
       {
         text: 'Javascript',
         items: [
+          { text: 'QR Code 处理实践', link: '/javascript/qrcode-processing' },
+          { text: '水印功能优化', link: '/javascript/watermark' },
           { text: 'Markdown Examples', link: '/javascript/markdown-examples' },
           { text: 'Runtime API Examples', link: '/javascript/api-examples' }
         ]

@@ -1,0 +1,301 @@
+# 使用 MutationObserver 优化水印功能
+
+## 前言
+公司后台上线了水印功能，但传统的水印实现往往存在被篡改或删除的风险。通过使用 MutationObserver 来增强水印的防篡改能力。
+
+## 核心功能
+1. 水印绘制
+2. 防篡改监控
+3. 自动恢复机制
+4. 样式配置
+
+## 实现原理
+
+### MutationObserver 介绍
+MutationObserver 是一个用于监视 DOM 变化的接口，它可以监控目标节点的以下变化：
+- 属性变化
+- 子节点变化
+- 子树变化
+
+### 水印防护实现
+```js
+check() {
+  const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+  const container = document.body;
+  const _this = this;
+  if (MutationObserver) {
+    let mo = new MutationObserver(mutationList => {
+      const canvasDom = document.querySelector('.watermrk-canvas');
+      mutationList.forEach((mutationRecord) => {
+        const { type, attributeName, target } = mutationRecord;
+        if (!canvasDom || (type === 'attributes' && attributeName ===
+            'style' && target.className === 'watermrk-canvas')) {
+          // 避免一直触发
+          mo.disconnect();
+          mo = null;
+          _this.reload();
+        }
+      });
+    });
+    mo.observe(container, {
+      attributes: true,
+      subtree: true,
+      childList: true
+    });
+  }
+  return this
+}
+```
+
+### 水印绘制核心
+```js
+drawWaterMark(ctx, text) {
+  this.setText(this.config)
+  let textHeight = 80
+  let textWidth = this.measureText.width + 28
+  let col = this.config.width / textWidth
+  let row = this.config.height / 50
+  for (let rIdx = 0; rIdx < row; rIdx++) {
+    for (let cIdx = 0; cIdx < col; cIdx++) {
+      this.drawText(ctx, text, cIdx * textWidth, rIdx * textHeight)
+    }
+  }
+}
+```
+
+## 使用示例
+
+```js
+import watermark from './watermark'
+
+// 初始化水印
+watermark.init({
+  text: '机密文件',
+  fontSize: 16,
+  color: 'rgba(0,0,0,0.1)',
+  degree: -30
+})
+
+// 更新水印
+watermark.update({
+  text: '新水印文本'
+})
+
+// 销毁水印
+watermark.destory()
+```
+
+## 优化要点
+
+1. 性能优化
+   - 使用 Canvas 绘制水印
+   - 批量绘制减少重绘次数
+   - 防抖处理避免频繁触发
+
+2. 安全性增强
+   - MutationObserver 监控 DOM 变化
+   - 样式修改自动恢复
+   - 水印节点删除自动重建
+
+3. 可配置性
+   - 支持自定义样式
+   - 文字内容可动态更新
+   - 提供完整的生命周期方法
+
+## 注意事项
+
+1. 兼容性考虑
+   ```js
+   const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+   ```
+
+2. 内存泄漏预防
+   ```js
+   mo.disconnect();
+   mo = null;
+   ```
+
+3. 样式安全
+   ```js
+   Object.assign(canvas.style, {
+     position: 'fixed',
+     pointerEvents: 'none',
+     zIndex: 99999,
+     opacity: 0.1
+   });
+   ```
+
+## 完整代码实现
+
+```js
+export class WaterMark {
+  constructor(config, styles) {
+    this.node = null;
+    this.measureText = { width: 0 }
+    this.config = {
+      width: screen.width,
+      height: screen.height,
+      degree: -30,
+      color: '#333',
+      fontSize: 18,
+      fontFamily: 'sans-serif',
+      ...config
+    }
+    this.styles = {
+      position: 'fixed',
+      pointerEvents: 'none',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      zIndex: 99999,
+      opacity: 0.1,
+      ...styles
+    }
+  }
+  init(config, styles) {
+    this.mergeConfig(config || {})
+    this.mergeStyles(styles || {})
+    this.initCanvas()
+    this.check()
+    return this
+  }
+  mergeConfig(config) {
+    Object.assign(this.config, config)
+    // 处理文字
+    let { fontSize, fontFamily, font } = this.config
+    this.config.font = font || `${fontSize}px ${fontFamily}`
+  }
+  mergeStyles(styles) {
+    Object.assign(this.styles, styles)
+  }
+  update(config = {}, styles = {}) {
+    this.mergeConfig(config)
+    this.mergeStyles(styles)
+    this.ctx.clearRect(0, 0, this.config.width, this.config.height)
+    this.drawWaterMark(this.ctx, this.config.text);
+    return this
+  }
+  /**
+   * @description 是否存在，不存在创建
+   * @memberof WaterMark
+   */
+  check() {
+    const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+    const container = document.body;
+    const _this = this;
+    if (MutationObserver) {
+      let mo = new MutationObserver(mutationList => {
+        const canvasDom = document.querySelector('.watermrk-canvas');
+        mutationList.forEach((mutationRecord) => {
+          const { type, attributeName, target } = mutationRecord;
+          if (!canvasDom || (type === 'attributes' && attributeName ===
+              'style' && target.className === 'watermrk-canvas')) {
+            // 避免一直触发
+            mo.disconnect();
+            mo = null;
+            _this.reload();
+          }
+        });
+      });
+      mo.observe(container, {
+        attributes: true,
+        subtree: true,
+        childList: true
+      });
+    }
+    return this
+  }
+  reload() {
+    this.destory()
+    this.init()
+    return this
+  }
+  destory() {
+    this?.canvas?.parentNode?.removeChild(this.canvas);
+    this.canvas = null;
+    return this
+  }
+  initCanvas() {
+    this.createCanvas();
+    this.ctx = this.canvas.getContext('2d');
+    this.canvas.height = this.config.height;
+    this.canvas.width = this.config.width;
+    this.drawWaterMark(this.ctx, this.config.text);
+    this.appendCanvas()
+  }
+  createCanvas() {
+    if (!this.canvas) {
+      let canvas = document.createElement('canvas');
+      canvas.classList.add('watermrk-canvas');
+      this.canvas = canvas;
+      Object.assign(canvas.style, this.generateStyle());
+    }
+  }
+  isExist() {
+    let canvasDom = document.querySelector('.watermrk-canvas')
+    return Boolean(canvasDom)
+  }
+  appendCanvas() {
+    !this.isExist() && document.body.appendChild(this.canvas)
+  }
+  /**
+   * @description 批画水印
+   * @param {*} ctx
+   * @param {*} text
+   * @memberof WaterMark
+   */
+  drawWaterMark(ctx, text) {
+    this.setText(this.config)
+    let textHeight = 80
+    let textWidth = this.measureText.width + 28
+    let col = this.config.width / textWidth
+    let row = this.config.height / 50
+    for (let rIdx = 0; rIdx < row; rIdx++) {
+      for (let cIdx = 0; cIdx < col; cIdx++) {
+        this.drawText(ctx, text, cIdx * textWidth, rIdx * textHeight)
+      }
+    }
+  }
+  /**
+   * @description 设置文本信息
+   * @memberof WaterMark
+   */
+  setText(config) {
+    this.ctx.fillStyle = config.color;
+    this.ctx.font = config.font;
+    var measureText = this.ctx.measureText(config.text);
+    this.measureText = measureText
+  }
+  drawText(ctx, text, x, y) {
+    ctx.save();
+    this.rotateContext(ctx, this.config.degree, x, y)
+    this.ctx.fillText(text, x, y);
+    ctx.restore();
+  }
+  rotateContext(ctx, degree, x, y) {
+    ctx.translate(x, y);
+    ctx.rotate((degree * Math.PI) / 180);
+  }
+  getBase64() {
+    return this.canvas.toDataURL('image/png', 1);
+  }
+  /**
+   * @description 生成容器样式
+   * @param {*} styles 样式对象
+   * @returns 样式
+   * @memberof WaterMark
+   */
+  generateStyle(styles = {}) {
+    return Object.assign(
+      this.styles,
+      styles
+    );
+  }
+}
+
+export default new WaterMark();
+```
+
+## 总结
+通过 MutationObserver 的监控机制，我们实现了一个具有防篡改能力的水印功能。这种实现方式不仅保证了水印的持久性，还提供了良好的可配置性和使用体验。
