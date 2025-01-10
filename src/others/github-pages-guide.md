@@ -1,52 +1,61 @@
-# Github-pages构建指南
+# Github Pages + VitePress 构建指南
 
-## 前言
-之前`github-pages`使用的是用hexo搭建的，准备用`VitePress`进行替换。
+## 背景介绍
+本文将介绍如何使用 VitePress 替换原有的 Hexo 搭建个人博客，并部署到 Github Pages。
 
-## 什么是VitePress
-[VitePress](https://vitepress.dev/zh/) 是一个静态站点生成器 (SSG)，专为构建快速、以内容为中心的站点而设计。简而言之，VitePress 获取用 Markdown 编写的内容，对其应用主题，并生成可以轻松部署到任何地方的静态 HTML 页面。
+## VitePress 简介
+[VitePress](https://vitepress.dev/zh/) 是一个基于 Vite 的静态站点生成器(SSG)，具有以下特点：
+- 极快的开发与构建速度
+- 基于 Markdown 的内容编写
+- Vue3 组件支持
+- 开箱即用的主题系统
+- 完全类型化的 API
 
-## VitePress配置
+## 项目搭建步骤
 
-1.初始化项目
+### 1. 环境准备
+确保已安装 Node.js (推荐 v18+) 和包管理器（本文使用 pnpm）。
 
+### 2. 项目初始化
 ```shell
+# 创建项目目录
+mkdir my-blog && cd my-blog
+
+# 初始化项目
 pnpm init
-```
 
-2.安装VitePress
-
-```shell
+# 安装 VitePress
 pnpm add -D vitepress
-```
 
-3.初始化VitePress
-
-```shell
+# 初始化 VitePress
 pnpm vitepress init
 ```
 
-4.修改`config.mts`配置文件
-
-> 配置入口为`src`文件夹，引入`unplugin-auto-import`与`unplugin-vue-components`插件
+### 3. 配置说明
+主要配置文件位于 `.vitepress/config.mts`，包含以下核心配置：
 
 ```ts
 import { defineConfig } from 'vitepress'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // 基础配置
   title: "Somnusochi's Home",
   description: "Plan-C",
   lang: 'zh-CN',
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  
+  // 目录配置
   srcDir: './src',
   outDir: './dist',
+  
+  // Markdown 配置
   markdown: {
     theme: 'monokai',
     lineNumbers: true,
   },
+  
+  // 主题配置
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -102,11 +111,13 @@ export default defineConfig({
       copyright: `Copyright © 2016-${new Date().getFullYear()} <a href="https://github.com/Somnusochi">Somnusochi</a>`
     }
   },
+  
+  // Vite 插件配置
   vite: {
     plugins: [
       AutoImport({
         imports: ['vue'],
-        dts: 'auto-imports.d.ts', // 生成类型声明文件
+        dts: 'auto-imports.d.ts',
       }),
       Components({
         dirs: [
@@ -123,38 +134,23 @@ export default defineConfig({
 })
 ```
 
-
-## github-pages部署
-在根目录新建`.github/workflows`文件夹，添加`deploy.yml`文件
+### 4. 自动部署配置
+在 `.github/workflows/deploy.yml` 中配置 Github Actions：
 
 ```yml
-# 构建 VitePress 站点并将其部署到 GitHub Pages 的示例工作流程
-#
 name: Deploy VitePress site to Pages
 
 on:
-  # 在针对 `main` 分支的推送上运行。如果你
-  # 使用 `master` 分支作为默认分支，请将其更改为 `master`
   push:
     branches: [site]
-
-  # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
 
-# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
 permissions:
   contents: write
   pages: write
   id-token: write
 
-# 只允许同时进行一次部署，跳过正在运行和最新队列之间的运行队列
-# 但是，不要取消正在进行的运行，因为我们希望允许这些生产部署完成
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
-  # 构建工作
   build:
     runs-on: ubuntu-latest
     steps:
@@ -191,7 +187,6 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }} # 使用 GitHub Token
           commit-message: 'Site updated: ${{ env.START_TIME }}🚀' # 提交信息
 
-  # 部署工作
   deploy:
     environment:
       name: github-pages
@@ -203,29 +198,32 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
 ```
 
-## 文件目录结构
-
+## 项目结构
 ```md
-.
+my-blog/
 ├─ package.json
-├─ .github
-│  └─ workflows
-│     └─ deploy.yml // git-action 配置文件
-├─ .vitepress // vitepress 相关文件
-│  ├─ theme
-│  │   ├─ index.ts
-│  │   └─ style.css
-│  └─ config.mts // 配置文件
-└─ src
-   ├─ assets // 内部静态资源
-   ├─ components // 组件文件夹
-   ├─ css // css主题
-   ├─ html // html主题
-   ├─ javascript // js主题
-   ├─ others // 其他主题
-   ├─ public // 静态资源
-   └─ index.md // 主页
+├─ .github/
+│  └─ workflows/
+│     └─ deploy.yml     # Github Actions配置
+├─ .vitepress/          # VitePress配置
+│  ├─ theme/
+│  │  ├─ index.ts      # 主题入口
+│  │  └─ style.css     # 自定义样式
+│  └─ config.mts       # 站点配置
+└─ src/
+   ├─ assets/          # 资源文件
+   ├─ components/      # Vue组件
+   ├─ public/          # 静态资源
+   └─ index.md         # 首页内容
 ```
+
+## 注意事项
+1. 确保 Github 仓库开启了 Pages 功能
+2. 配置正确的部署分支和目录
+3. 设置合适的 Github Token 权限
+
+## 参考资源
+- [VitePress 官方文档](https://vitepress.dev/zh/)
+- [Github Pages 文档](https://docs.github.com/en/pages)
