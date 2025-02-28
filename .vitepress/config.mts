@@ -47,6 +47,7 @@ export default defineConfig({
         text: 'CSS',
         items: [
           { text: '文字粒子效果', link: '/css/flip-words' },
+          { text: '文字流光效果', link: '/css/marquee-words' },
         ]
       },
       {

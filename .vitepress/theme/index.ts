@@ -4,6 +4,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import FlipWords from '@/components/FlipWords.vue'
+import MarqueeWords from '@/components/MarqueeWords.vue'
 
 export default {
   extends: DefaultTheme,
@@ -14,5 +15,6 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.component('FlipWords', FlipWords)
+    app.component('MarqueeWords', MarqueeWords)
   }
 } satisfies Theme

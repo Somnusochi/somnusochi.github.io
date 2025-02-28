@@ -10,7 +10,4 @@ hero:
     - theme: brand
       text: Documents
       link: /about
-    - theme: alt
-      text: Resume
-      link: /resume
 ---
