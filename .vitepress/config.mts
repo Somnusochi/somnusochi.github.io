@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { resolve } from 'path'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -26,31 +27,26 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Docs', link: '/' },
+      { text: 'Docs', link: '/about' },
       { text: 'Resume', link: '/resume' }
     ],
     sidebar: [
+      {
+        items: [
+          { text: 'About', link: '/about' }
+        ]
+      },
       {
         text: 'Javascript',
         items: [
           { text: 'QR Code 处理实践', link: '/javascript/qrcode-processing' },
           { text: '水印功能优化', link: '/javascript/watermark' },
-          { text: 'Markdown Examples', link: '/javascript/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/javascript/api-examples' }
         ]
       },
       {
         text: 'CSS',
         items: [
-          { text: 'Markdown Examples', link: '/css/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/css/api-examples' }
-        ]
-      },
-      {
-        text: 'HTML',
-        items: [
-          { text: 'Markdown Examples', link: '/html/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/html/api-examples' }
+          { text: '文字粒子效果', link: '/css/flip-words' },
         ]
       },
       {
@@ -75,10 +71,6 @@ export default defineConfig({
     outline: {
       label: '本页目录',
     },
-    footer: {
-      message: 'With simple hearts, do what you love.',
-      copyright: `Copyright © 2016-${new Date().getFullYear()} <a href="https://github.com/Somnusochi">Somnusochi</a>`
-    }
   },
   vite: {
     plugins: [
@@ -97,5 +89,10 @@ export default defineConfig({
         dts: true,
       }),
     ],
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, '../src'),
+      },
+    },
   }
 })

@@ -1,9 +1,10 @@
-# 使用 MutationObserver 优化水印功能
+<FlipWords :words="['使用MutationObserver优化水印功能','']"/>
 
 ## 前言
 公司后台上线了水印功能，但传统的水印实现往往存在被篡改或删除的风险。通过使用 MutationObserver 来增强水印的防篡改能力。
 
 ## 核心功能
+
 1. 水印绘制
 2. 防篡改监控
 3. 自动恢复机制
@@ -12,12 +13,15 @@
 ## 实现原理
 
 ### MutationObserver 介绍
+
 MutationObserver 是一个用于监视 DOM 变化的接口，它可以监控目标节点的以下变化：
+
 - 属性变化
 - 子节点变化
 - 子树变化
 
 ### 水印防护实现
+
 ```js
 check() {
   const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
@@ -48,6 +52,7 @@ check() {
 ```
 
 ### 水印绘制核心
+
 ```js
 drawWaterMark(ctx, text) {
   this.setText(this.config)
@@ -105,17 +110,20 @@ watermark.destory()
 ## 注意事项
 
 1. 兼容性考虑
+
    ```js
    const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
    ```
 
 2. 内存泄漏预防
+
    ```js
    mo.disconnect();
    mo = null;
    ```
 
 3. 样式安全
+
    ```js
    Object.assign(canvas.style, {
      position: 'fixed',
@@ -298,4 +306,5 @@ export default new WaterMark();
 ```
 
 ## 总结
+
 通过 MutationObserver 的监控机制，我们实现了一个具有防篡改能力的水印功能。这种实现方式不仅保证了水印的持久性，还提供了良好的可配置性和使用体验。

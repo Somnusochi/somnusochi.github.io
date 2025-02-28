@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    /* 路径别名配置开始 */
+    "baseUrl": "src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@": [
+        "./"
+      ]
+    },
+    "types": [
+      "node"
+    ] // 添加 node 类型声明
+  },
+  "include": [
+    "src",
+    ".vitepress",
+    "src/auto-imports.d.ts",
+    "src/components.d.ts"
+  ]
+}
