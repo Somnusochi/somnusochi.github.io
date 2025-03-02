@@ -1,7 +1,7 @@
-<FlipWords :words="['使用MutationObserver优化水印功能','']"/>
+<FlipWords :words="['使用MutationObserver优化水印功能']"/>
 
 ## 前言
-公司后台上线了水印功能，但传统的水印实现往往存在被篡改或删除的风险。通过使用 MutationObserver 来增强水印的防篡改能力。
+公司后台上线了水印功能，但传统的水印实现往往存在被篡改或删除的风险。通过使用 `MutationObserver` 来增强水印的防篡改能力。
 
 ## 核心功能
 
@@ -14,7 +14,7 @@
 
 ### MutationObserver 介绍
 
-MutationObserver 是一个用于监视 DOM 变化的接口，它可以监控目标节点的以下变化：
+`MutationObserver` 是一个用于监视 DOM 变化的接口，它可以监控目标节点的以下变化：
 
 - 属性变化
 - 子节点变化

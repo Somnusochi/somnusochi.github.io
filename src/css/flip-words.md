@@ -242,3 +242,10 @@ export const FlipWords = ({
 1. 动画系统转换：`framer-motion` → `motion-v`
 2. 状态管理： `useState` → `ref` + `Composition API`
 3. 生命周期： `useEffect` → `onMounted/onUnmounted`
+
+## 参考资料
+[flip-words](https://ui.aceternity.com/components/flip-words) -A component that flips through a list of words
+
+[Motion](https://motion.dev/) -A modern animation library for JavaScript and React
+
+[Motion Vue](https://motion.seacoly.me/) -Build beautiful motion-driven interfaces with Vue.js based on motion. Simple, powerful, and performant animations for modern web applications.

@@ -1,8 +1,7 @@
 ---
 outline: deep
 ---
-
-<MarqueeWords words="文字流光效果"/>
+<FlipWords :words="['文字流光效果']"/>
 
 ## 前言
 
@@ -40,6 +39,11 @@ outline: deep
 </script>
 
 <style lang="scss" scoped>
+  @keyframes changeColor {
+    to {
+      color: #000;
+    }
+  }
   .marquee-words {
     font-size: 32px;
     font-weight: 400;
@@ -52,11 +56,6 @@ outline: deep
     color: #fff;
     animation: changeColor 1s infinite ease-in-out alternate forwards;
   }
-  @keyframes changeColor {
-    to {
-      color: #000;
-    }
-  }
 </style>
 ```
 
@@ -68,3 +67,6 @@ outline: deep
 ```vue
 <MarqueeWords words="MarqueeWords"/>
 ```
+
+## 参考资料
+[animation-direction](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-direction)

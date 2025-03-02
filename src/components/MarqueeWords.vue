@@ -18,6 +18,11 @@
 </script>
 
 <style lang="scss" scoped>
+  @keyframes changeColor {
+    to {
+      color: #000;
+    }
+  }
   .marquee-words {
     font-size: 32px;
     font-weight: 400;
@@ -29,10 +34,5 @@
   .char {
     color: #fff;
     animation: changeColor 1s infinite ease-in-out alternate forwards;
-  }
-  @keyframes changeColor {
-    to {
-      color: #000;
-    }
   }
 </style>

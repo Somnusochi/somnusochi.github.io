@@ -1,4 +1,4 @@
-# Github Pages + VitePress 构建指南
+<FlipWords :words="['GithubPages+VitePress构建指南']"/>
 
 ## 背景介绍
 本文将介绍如何使用 VitePress 替换原有的 Hexo 搭建个人博客，并部署到 Github Pages。

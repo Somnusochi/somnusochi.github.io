@@ -1,8 +1,6 @@
-<script setup>
-</script>
-
-# Resume
+<FlipWords :words="['Resume']"/>
 
 待完善
 
-
+<script setup>
+</script>

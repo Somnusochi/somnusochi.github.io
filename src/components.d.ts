@@ -9,6 +9,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     FlipWords: typeof import('./components/FlipWords.vue')['default']
+    HeadTitle: typeof import('./components/HeadTitle.vue')['default']
     MarqueeWords: typeof import('./components/MarqueeWords.vue')['default']
+    VirtualList: typeof import('./components/VirtualList.vue')['default']
   }
 }
