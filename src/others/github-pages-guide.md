@@ -1,3 +1,7 @@
+---
+layout: doc
+outline: deep
+---
 <FlipWords :words="['GithubPages+VitePress构建指南']"/>
 
 ## 背景介绍

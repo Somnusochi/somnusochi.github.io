@@ -8,8 +8,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Clock: typeof import('./components/Clock.vue')['default']
     FlipWords: typeof import('./components/FlipWords.vue')['default']
     HeadTitle: typeof import('./components/HeadTitle.vue')['default']
+    Home: typeof import('./components/Home.vue')['default']
     MarqueeWords: typeof import('./components/MarqueeWords.vue')['default']
     VirtualList: typeof import('./components/VirtualList.vue')['default']
   }

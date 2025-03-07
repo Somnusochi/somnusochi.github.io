@@ -1,3 +1,8 @@
+---
+layout: doc
+outline: deep
+---
+
 <FlipWords :words="['使用MutationObserver优化水印功能']"/>
 
 ## 前言

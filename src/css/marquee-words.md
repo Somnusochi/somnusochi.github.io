@@ -1,4 +1,5 @@
 ---
+layout: doc
 outline: deep
 ---
 <FlipWords :words="['文字流光效果']"/>

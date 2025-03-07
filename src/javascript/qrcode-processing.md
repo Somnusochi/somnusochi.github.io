@@ -1,3 +1,8 @@
+---
+layout: doc
+outline: deep
+---
+
 <FlipWords :words="['QRCode处理实践指南']"/>
 
 ## 前言

@@ -1,4 +1,5 @@
 ---
+layout: doc
 outline: deep
 ---
 <FlipWords :words="['文字粒子效果组件','FlipWords']"/>

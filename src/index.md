@@ -1,13 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "Somnusochi's Home"
-  text: "Plan-C"
-  tagline: With simple hearts, do what you love.
-  actions:
-    - theme: brand
-      text: Documents
-      link: /about
+layout: page
+navbar: false
+sidebar: false
 ---
+<Home/>
