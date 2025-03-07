@@ -1,13 +1,35 @@
 <template>
   <div class="home">
     <div class="container" @click="goToAbout">
-      <h1 class="slogan">With simple hearts, do what you love.</h1>
-      <p>Somnusochi's Home</p>
+      <h1 class="slogan">
+        <span
+          class="char"
+          v-for="(char, index) in slogan"
+          :key="char"
+          :style="{ animationDelay: `${getDelay(index)}ms` }">
+          {{ char }}
+        </span>
+      </h1>
+      <p class="tips">Somnusochi's Home</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  const slogan = ref([
+    'With',
+    'simple',
+    'hearts,',
+    'do',
+    'what',
+    'you',
+    'love.',
+  ]);
+  const getDelay = (index: number) => {
+    const base = 200 * (((index + 1) % 2) + 1);
+    const random = Math.random() * 100 - 50;
+    return base + random;
+  };
   const goToAbout = () => {
     window.location.href = '/about';
   };
@@ -51,6 +73,30 @@
     }
     p {
       text-align: end;
+    }
+
+    .slogan {
+      .char {
+        opacity: 0;
+        animation: fadeIn 1300ms ease-in forwards;
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+    .tips {
+      font-size: 16px;
+      opacity: 0;
+      animation: fadeIn 1300ms ease-in forwards;
+      animation-delay: 400ms;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 </style>
