@@ -68,6 +68,7 @@
     h1 {
       color: var(--vp-c-text-2);
       font-size: 48px;
+      line-height: 1.6;
       font-weight: 500;
       margin: -10vh 0 20px;
     }
@@ -85,6 +86,7 @@
     }
     .tips {
       font-size: 16px;
+      color: var(--vp-c-text-2);
       opacity: 0;
       animation: fadeIn 1300ms ease-in forwards;
       animation-delay: 400ms;

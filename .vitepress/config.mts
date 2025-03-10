@@ -2,6 +2,13 @@ import { defineConfig } from 'vitepress'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { resolve } from 'path'
+import generateSidebar from './utils/generateSidebar'
+
+// 生成侧边栏配置
+const sidebar =  await generateSidebar(resolve(__dirname, '../src/pages'))
+// console.log('sidebar', JSON.stringify(sidebar));
+
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -13,14 +20,25 @@ export default defineConfig({
   outDir: './dist',
   markdown: {
     theme: 'monokai',
-    lineNumbers: true,
+    lineNumbers: false,
     config: (md) => {
       const fence = md.renderer.rules.fence!
       md.renderer.rules.fence = (...args) => {
         const [tokens, idx] = args
         const token = tokens[idx]
         const rawCode = fence(...args)
-        return `<div class="custom-code-block">${rawCode}</div>`
+        const terminalHeader = `
+          <div class="terminal-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+              <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+              </g>
+            </svg>
+          </div>
+        `;
+        return `<div class="custom-code-block">${terminalHeader}${rawCode}</div>`;
       }
     }
   },
@@ -36,26 +54,7 @@ export default defineConfig({
           { text: 'About', link: '/about' }
         ]
       },
-      {
-        text: 'Javascript',
-        items: [
-          { text: 'QR Code 处理实践', link: '/javascript/qrcode-processing' },
-          { text: '水印功能优化', link: '/javascript/watermark' },
-        ]
-      },
-      {
-        text: 'CSS',
-        items: [
-          { text: '文字粒子效果', link: '/css/flip-words' },
-          { text: '文字流光效果', link: '/css/marquee-words' },
-        ]
-      },
-      {
-        text: 'Others',
-        items: [
-          { text: 'Github-pages搭建指南', link: '/others/github-pages-guide' },
-        ]
-      },
+      ...sidebar,
       {
         items: [
           { text: 'Resume', link: '/resume' }

@@ -138,3 +138,20 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+.vp-doc div[class*='language-'] {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.custom-code-block {
+  box-shadow: 0 20px 68px rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+}
+.terminal-header {
+  background-color: var(--vp-code-block-bg);
+  margin-top: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 10px 0 10px 10px;
+}
