@@ -1,6 +1,7 @@
 ---
 layout: doc
 outline: deep
+title: QRCode处理实践指南
 ---
 
 <FlipWords :words="['QRCode处理实践指南']"/>
