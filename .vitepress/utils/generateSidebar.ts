@@ -10,6 +10,7 @@ interface SidebarGroup {
   text?: string;
   items: SidebarItem[];
   sort: number;
+  collapsed?: boolean;
 }
 
 const loadConfig = async (configPath: string) => {
@@ -41,6 +42,7 @@ async function generateSidebar(directory: string) {
         text: config?.meta?.title || baseDir.charAt(0).toUpperCase() + baseDir.slice(1),
         items: [],
         sort: config?.sort || 0,
+        collapsed: false,
       };
     }
 
