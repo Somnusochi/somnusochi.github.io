@@ -46,7 +46,6 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Docs', link: '/about' },
-      { text: 'Resume', link: '/resume' }
     ],
     sidebar: [
       {
@@ -55,11 +54,6 @@ export default defineConfig({
         ]
       },
       ...sidebar,
-      {
-        items: [
-          { text: 'Resume', link: '/resume' }
-        ]
-      }
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Somnusochi' }

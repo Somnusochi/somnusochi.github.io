@@ -6,10 +6,13 @@ title: GithubPages+VitePress构建指南
 <FlipWords :words="['GithubPages+VitePress构建指南']"/>
 
 ## 背景介绍
+
 本文将介绍如何使用 VitePress 替换原有的 Hexo 搭建个人博客，并部署到 Github Pages。
 
 ## VitePress 简介
+
 [VitePress](https://vitepress.dev/zh/) 是一个基于 Vite 的静态站点生成器(SSG)，具有以下特点：
+
 - 极快的开发与构建速度
 - 基于 Markdown 的内容编写
 - Vue3 组件支持
@@ -19,9 +22,11 @@ title: GithubPages+VitePress构建指南
 ## 项目搭建步骤
 
 ### 1. 环境准备
+
 确保已安装 Node.js (推荐 v18+) 和包管理器（本文使用 pnpm）。
 
 ### 2. 项目初始化
+
 ```shell
 # 创建项目目录
 mkdir my-blog && cd my-blog
@@ -37,6 +42,7 @@ pnpm vitepress init
 ```
 
 ### 3. 配置说明
+
 主要配置文件位于 `.vitepress/config.mts`，包含以下核心配置：
 
 ```ts
@@ -140,6 +146,7 @@ export default defineConfig({
 ```
 
 ### 4. 自动部署配置
+
 在 `.github/workflows/deploy.yml` 中配置 Github Actions：
 
 ```yml
@@ -206,6 +213,7 @@ jobs:
 ```
 
 ## 项目结构
+
 ```md
 my-blog/
 ├─ package.json
@@ -225,10 +233,12 @@ my-blog/
 ```
 
 ## 注意事项
+
 1. 确保 Github 仓库开启了 Pages 功能
 2. 配置正确的部署分支和目录
 3. 设置合适的 Github Token 权限
 
 ## 参考资源
+
 - [VitePress 官方文档](https://vitepress.dev/zh/)
 - [Github Pages 文档](https://docs.github.com/en/pages)
