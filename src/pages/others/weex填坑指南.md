@@ -77,8 +77,7 @@ WXModalUIModule.m
 
 ```javascript
 getSkuList() {
-  const _this = this;
-  _this.skuList = [];
+  this.skuList = [];
   console.log('aaa');
   storage.setItem('skuList', _this.skuList, event => {
     console.log('set success');
@@ -86,7 +85,7 @@ getSkuList() {
   storage.getItem('skuList', event => {
     console.log('get value');
     if (event.data) {
-      _this.skuList = event.data;
+      this.skuList = event.data;
     }
   });
   console.log('bbb');
@@ -128,7 +127,7 @@ storage.setItem('skuList', skuList, event => {
 storage.getItem('skuList', event => {
   console.log('get value:', event.data);
   if (event.data) {
-    _this.skuList = JSON.parse(event.data);
+    this.skuList = JSON.parse(event.data);
   }
 });
 ```
