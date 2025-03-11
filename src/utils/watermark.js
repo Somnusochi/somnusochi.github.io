@@ -3,8 +3,8 @@ export class WaterMark {
     this.node = null;
     this.measureText = { width: 0 };
     this.config = {
-      width: screen.width,
-      height: screen.height,
+      width: typeof window !== 'undefined' ? window.screen.width : 1920, // 默认宽度
+      height: typeof window !== 'undefined' ? window.screen.height : 1080, // 默认高度
       degree: -30,
       color: '#333',
       fontSize: 18,
@@ -22,7 +22,7 @@ export class WaterMark {
       opacity: 0.1,
       ...styles,
     };
-    this.mo = null; 
+    this.mo = null;
   }
   init(config, styles) {
     this.mergeConfig(config || {});
