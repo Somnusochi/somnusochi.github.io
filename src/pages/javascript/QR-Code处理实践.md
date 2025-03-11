@@ -1,10 +1,11 @@
 ---
 layout: doc
 outline: deep
-title: QRCode处理实践指南
+title: QRCode处理实践
+description: QRCode处理实践 jsqr qrcode
 ---
 
-<FlipWords :words="['QRCode处理实践指南']"/>
+<FlipWords :words="['QRCode处理实践']"/>
 
 ## 前言
 在日常业务中，我们经常遇到需要处理大量员工微信名片的场景。由于微信生成的二维码样式不统一，需要一个工具来统一处理这些二维码图片，使其具有一致的格式与样式。本文将介绍如何在浏览器环境中处理二维码图片，包括二维码的读取、生成和图片裁剪等功能。
