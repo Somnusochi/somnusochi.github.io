@@ -239,7 +239,9 @@ my-blog/
 2. 配置正确的部署分支和目录
 3. 设置合适的 Github Token 权限
 
-## 参考资源
+---
+::: info 参考资料
+[VitePress 官方文档](https://vitepress.dev/zh/)
 
-- [VitePress 官方文档](https://vitepress.dev/zh/)
-- [Github Pages 文档](https://docs.github.com/en/pages)
+[Github Pages 文档](https://docs.github.com/en/pages)
+:::
