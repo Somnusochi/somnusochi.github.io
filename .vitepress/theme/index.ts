@@ -18,5 +18,4 @@ export default {
     app.component('FlipWords', FlipWords)
     app.component('MarqueeWords', MarqueeWords)
   }
-  enhanceApp({ app, router, siteData }) {}
 } satisfies Theme
