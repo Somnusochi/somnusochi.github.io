@@ -15,7 +15,21 @@ export default defineConfig({
   title: "Somnusochi's Home",
   description: "Plan-C",
   lang: 'zh-CN',
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-SBR4PHNY08' }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SBR4PHNY08');`
+    ]
+  ],
   srcDir: './src',
   outDir: './dist',
   markdown: {
@@ -66,6 +80,7 @@ export default defineConfig({
       label: '本页目录',
     },
   },
+  cleanUrls: true,
   vite: {
     plugins: [
       AutoImport({
