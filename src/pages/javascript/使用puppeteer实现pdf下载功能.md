@@ -102,3 +102,7 @@ export const pdfGenerator = async (ctx: Context, next: Next) => {
 ```
 
 通过这种方式，我们可以确保页面上的特定内容已经加载完成，然后再生成PDF。这对于需要等待异步加载内容的页面非常有用。
+
+## 为什么选择Puppeteer
+
+最终，我们选择使用Puppeteer来实现PDF生成功能，主要原因是错题本和学情报告中包含复杂的图表和样式展示需求。Puppeteer能够模拟完整的浏览器环境，支持复杂的页面和交互，生成的PDF质量高，接近打印效果。此外，Puppeteer还支持所有现代浏览器的特性，能够很好地兼容各种复杂的CSS和JavaScript效果，确保生成的PDF与实际页面效果一致。
