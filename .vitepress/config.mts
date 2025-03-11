@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import restart from 'vite-plugin-restart';
 import { resolve } from 'path'
 import generateSidebar from './utils/generateSidebar'
 
@@ -83,6 +84,7 @@ export default defineConfig({
   cleanUrls: true,
   vite: {
     plugins: [
+      restart({ restart: ['../src/**/*'] }),
       AutoImport({
         imports: ['vue'],
         dts: 'auto-imports.d.ts', // 生成类型声明文件

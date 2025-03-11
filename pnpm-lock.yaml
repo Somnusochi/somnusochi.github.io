@@ -34,6 +34,9 @@ devDependencies:
   unplugin-vue-components:
     specifier: ^28.4.0
     version: 28.4.0(vue@3.5.13)
+  vite-plugin-restart:
+    specifier: ^0.4.2
+    version: 0.4.2(vite@5.4.14)
   vitepress:
     specifier: ^1.6.3
     version: 1.6.3(@algolia/client-search@5.20.3)(@types/node@22.13.5)(sass-embedded@1.85.1)(search-insights@2.17.2)
@@ -1528,6 +1531,14 @@ packages:
     resolution: {integrity: sha512-oNh6S2WMHWRZrmutsRmDDfkzKtxF+bc2VxLC9dvtrDIRFln627VsFP6fLMgTryGDljgLPjkrzQSDcPrjPyDJ5w==}
     dev: true
 
+  /micromatch@4.0.8:
+    resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
+    engines: {node: '>=8.6'}
+    dependencies:
+      braces: 3.0.3
+      picomatch: 2.3.1
+    dev: true
+
   /minimatch@10.0.1:
     resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
     engines: {node: 20 || >=22}
@@ -2329,6 +2340,15 @@ packages:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
+    dev: true
+
+  /vite-plugin-restart@0.4.2(vite@5.4.14):
+    resolution: {integrity: sha512-9aWN2ScJ8hbT7aC8SDeZnsbWapnslz1vhNq6Vgf2GU9WdN4NExlrWhtnu7pmtOUG3Guj8y6lPcUZ+ls7SVP33w==}
+    peerDependencies:
+      vite: ^2.9.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+    dependencies:
+      micromatch: 4.0.8
+      vite: 5.4.14(@types/node@22.13.5)(sass-embedded@1.85.1)
     dev: true
 
   /vite@5.4.14(@types/node@22.13.5)(sass-embedded@1.85.1):
