@@ -1,10 +1,10 @@
 ---
 layout: doc
 outline: deep
-title: 文字粒子效果组件
+title: motion的简单应用
 description: FlipWords 文字粒子效果组件
 ---
-<FlipWords :words="['文字粒子效果组件','FlipWords']"/>
+<FlipWords :words="['motion的简单应用','文字粒子效果组件','FlipWords']"/>
 
 ## 前言
 

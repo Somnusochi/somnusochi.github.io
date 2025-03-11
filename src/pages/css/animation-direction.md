@@ -4,7 +4,7 @@ outline: deep
 title: 文字流光效果
 description: animation-direction marquee-words
 ---
-<FlipWords :words="['文字流光效果']"/>
+<FlipWords :words="['animation-direction']"/>
 
 ## 前言
 
